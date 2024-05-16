@@ -59,9 +59,9 @@ def process_file(input_file_path, output_file_path):
     with codecs.open(output_file_path, 'w', encoding='utf-8') as file:
         file.write(processed_content)
 
-# Ruta del archivo de entrada y salida
-input_file_path = 'd:\ESTHER\material json\compartido.txt'
-output_file_path = 'd:\ESTHER\material json\compartido_procesado.txt'
+# Ruta del archivo de entrada y salida. en este caso solo se procesa un documento
+input_file_path = ''
+output_file_path = ''
 
 # Procesar el archivo
 process_file(input_file_path, output_file_path)

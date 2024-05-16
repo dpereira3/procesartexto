@@ -2,9 +2,9 @@ import os
 import json
 
 # Ruta de la carpeta que contiene los archivos TXT
-carpeta_txt = 'd:\ESTHER\Material procesado\compartido'
+carpeta_txt = 'ruta original de la carpeta de documentos'
 
-# Lista de codificaciones a probar
+# Lista de codificaciones a probar para documentos en español
 codificaciones = ['utf-8', 'ansi', 'latin-1', 'windows-1252', 'iso-8859-1']
 
 # Diccionario de traducción de caracteres especiales
@@ -64,7 +64,7 @@ for archivo_txt in os.listdir(carpeta_txt):
                 with open(ruta_original, 'r', encoding=codificacion) as archivo:
                     lineas = archivo.readlines()
                 
-                # Codificar las líneas a UTF-8
+                # Codificar las líneas a UTF-8. no corrige realmente el problema de la codificacion, ya que no sustituye los caracteres
                 lineas = [linea.encode('utf-8', errors='replace').decode('utf-8') for linea in lineas]
                 
                 # Comprobar si hay caracteres especiales en las líneas
@@ -126,7 +126,7 @@ for archivo_txt in os.listdir(carpeta_txt):
 with open('archivo_combinado.json', 'w', encoding='utf-8') as archivo_json:
     json.dump(datos_json_final, archivo_json, indent=2)
 
-# Procesar el archivo JSON final para traducir secuencias de caracteres especiales
+# Procesar el archivo JSON final para traducir secuencias de caracteres especiales, tampoco soluciono el problema de codificacion
 with open('archivo_combinado.json', 'r', encoding='utf-8') as archivo_json:
     datos_json = json.load(archivo_json)
     
